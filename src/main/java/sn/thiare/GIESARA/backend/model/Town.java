@@ -1,5 +1,6 @@
 package sn.thiare.GIESARA.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class Town {
     private String name;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private Common common;
 }
