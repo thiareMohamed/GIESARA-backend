@@ -12,14 +12,14 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Town {
+public class Village {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String nom;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
-    private Common common;
+    private Commune commune;
 }
