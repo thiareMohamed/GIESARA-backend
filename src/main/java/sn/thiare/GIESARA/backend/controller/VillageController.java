@@ -21,19 +21,19 @@ public class VillageController {
         return villageService.getAllVillage();
     }
     @GetMapping("/villages/{id}")
-    public Village show(int id){
+    public Village show(@PathVariable int id){
         return villageService.getVillageById(id);
     }
     @PostMapping("/villages")
-    public ResponseEntity<Village> create(Village village){
+    public ResponseEntity<Village> create(@RequestBody Village village){
        return villageService.createVillage(village);
     }
     @DeleteMapping("/villages/{id}")
-    public void delete(int id){
+    public void delete(@PathVariable int id){
         villageService.deleteVillage(id);
     }
     @PutMapping("/villages/{id}")
-    public ResponseEntity<Village> update(Village village, int id){
+    public ResponseEntity<Village> update(@RequestBody Village village,@PathVariable int id){
         village.setId(id);
         return villageService.createVillage(village);
     }

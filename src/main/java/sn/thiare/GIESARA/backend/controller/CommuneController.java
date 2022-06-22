@@ -21,19 +21,19 @@ public class CommuneController {
         return communeService.getAllCommune();
     }
     @GetMapping("/communes/{id}")
-    public Commune show(int id){
+    public Commune show(@PathVariable int id){
         return communeService.getCommuneById(id);
     }
     @PostMapping("/communes")
-    public ResponseEntity<Commune> create(Commune commune){
+    public ResponseEntity<Commune> create(@RequestBody Commune commune){
         return communeService.createCommune(commune);
     }
     @DeleteMapping("/communes/{id}")
-    public void delete(int id){
+    public void delete(@PathVariable int id){
         communeService.deleteCommune(id);
     }
     @PutMapping("/communes/{id}")
-    public ResponseEntity<Commune> update(Commune commune, int id){
+    public ResponseEntity<Commune> update(@RequestBody Commune commune,@PathVariable int id){
         commune.setId(id);
         return communeService.createCommune(commune);
     }

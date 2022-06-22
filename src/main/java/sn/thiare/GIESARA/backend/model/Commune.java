@@ -3,8 +3,6 @@ package sn.thiare.GIESARA.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sn.thiare.GIESARA.backend.model.Village;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +16,6 @@ public class Commune {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    @OneToMany(mappedBy = "commune")
+    @OneToMany(mappedBy = "commune", cascade = CascadeType.ALL)
     private List<Village> village;
 }

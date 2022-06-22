@@ -22,13 +22,13 @@ public class VillageService {
     public List<Village> getAllVillage(){
         return villageRepository.findAll();
     }
-    public Village getVillageById(@PathVariable int id){
+    public Village getVillageById(int id){
         return villageRepository.findById(id).orElse(null);
     }
-    public void deleteVillage(@PathVariable int id){
+    public void deleteVillage(int id){
         villageRepository.deleteById(id);
     }
-    public ResponseEntity<Village> createVillage(@PathVariable Village village){
+    public ResponseEntity<Village> createVillage(Village village){
         Village villageAdded = villageRepository.save(village);
         if (Objects.isNull(villageAdded)) {
             return ResponseEntity.noContent().build();
