@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +17,7 @@ public class Compteur  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String type_compteur;
     private String type_abonnement;
     private Date date_abonnement;
@@ -27,5 +29,11 @@ public class Compteur  {
 
     @ManyToOne
     private Village village;
+
+    @ManyToOne
+    private Client client;
+
+    @OneToMany(mappedBy = "compteur")
+    private List<Facture> facture;
 
 }
