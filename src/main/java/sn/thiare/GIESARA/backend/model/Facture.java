@@ -14,10 +14,8 @@ import java.sql.Date;
 public class Facture {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     private String code_facture;
+
     private Date date_dernier_releve;
     private int ancien_index;
     private int nouvel_index;
@@ -34,5 +32,5 @@ public class Facture {
     private BonCoupure bonCoupure;
 
     @OneToOne(mappedBy = "facture")
-    private BonCoupure bonCoupure;
+    private Reglement reglement;
 }
