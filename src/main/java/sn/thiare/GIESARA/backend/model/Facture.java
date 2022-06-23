@@ -30,4 +30,9 @@ public class Facture {
     @ManyToOne
     private Compteur compteur;
 
+    @OneToOne(mappedBy = "facture")
+    private BonCoupure bonCoupure;
+
+    @OneToOne(mappedBy = "facture")
+    private BonCoupure bonCoupure;
 }
