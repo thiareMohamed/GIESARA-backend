@@ -36,4 +36,6 @@ public class Compteur  {
     @OneToMany(mappedBy = "compteur")
     private List<Facture> facture;
 
+    @ManyToOne
+    private Abonnement abonnement;
 }

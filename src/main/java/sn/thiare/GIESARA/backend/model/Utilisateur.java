@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("USER")
@@ -19,4 +16,7 @@ public class Utilisateur extends Personne{
     private String password;
     @Enumerated(EnumType.ORDINAL)
     private Role role;
+
+    @OneToOne(mappedBy = "utilisateur")
+    private Reglement reglement;
 }

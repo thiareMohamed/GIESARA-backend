@@ -5,22 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Reglement {
+public class Abonnement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Double somme_versee;
+    private String libelle;
+    private int prix_unitaire;
 
-    @OneToOne
-    private Facture facture;
-
-    @OneToOne
-    private Utilisateur utilisateur;
+    @OneToMany(mappedBy = "abonnement")
+    private List<Compteur> compteur;
 }
