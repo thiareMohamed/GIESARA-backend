@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("USER")
@@ -14,8 +15,9 @@ import javax.persistence.*;
 public class Utilisateur extends Personne{
     private String email;
     private String password;
-    @Enumerated(EnumType.ORDINAL)
-    private Role role;
+
+    @ManyToMany
+    private List<Role> role;
 
     @OneToOne(mappedBy = "utilisateur")
     private Reglement reglement;
