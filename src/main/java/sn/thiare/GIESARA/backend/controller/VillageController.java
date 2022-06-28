@@ -7,7 +7,7 @@ import sn.thiare.GIESARA.backend.service.VillageService;
 
 import java.util.List;
 
-@RestController
+//@RestController
 public class VillageController {
 
     private VillageService villageService;

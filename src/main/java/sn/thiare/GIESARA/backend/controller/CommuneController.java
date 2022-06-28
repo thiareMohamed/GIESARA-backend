@@ -7,7 +7,7 @@ import sn.thiare.GIESARA.backend.service.CommuneService;
 
 import java.util.List;
 
-@RestController
+//@RestController
 public class CommuneController {
 
     private CommuneService communeService;
