@@ -23,7 +23,9 @@ public class Personne {
     private Date date_naissance;
     private String lieu_naissance;
     private char sexe;
+    @Column(unique = true)
     private int numero_telephone;
-    private int numero_cni;
+    @Column(unique = true, nullable = false)
+    private String numero_cni;
 
 }

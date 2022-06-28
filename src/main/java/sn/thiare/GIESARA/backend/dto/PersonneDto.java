@@ -22,7 +22,7 @@ public class PersonneDto {
     private String lieu_naissance;
     private char sexe;
     private int numero_telephone;
-    private int numero_cni;
+    private String numero_cni;
 
     public Personne toEntity(PersonneDto personneDto) {
         if (personneDto == null) {
