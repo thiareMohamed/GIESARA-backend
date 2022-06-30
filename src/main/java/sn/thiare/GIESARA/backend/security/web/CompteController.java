@@ -35,9 +35,9 @@ public class CompteController {
     public void addRoleToEmail(@RequestBody RoleEmailForm roleEmailForm) {
         compteService.addRoleToEmail(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
     }
-    @DeleteMapping("/utilisateurs/{email}")
-    public void deleteUtilisateur(@PathVariable String email) {
-        compteService.deleteUtilisateur(email);
+    @DeleteMapping("/utilisateurs/{id}")
+    public void deleteUtilisateur(@PathVariable int id) {
+        compteService.deleteUtilisateur(id);
     }
     @PostMapping("/removeRole")
     public void detaleRole(@RequestBody RoleEmailForm roleEmailForm) {
