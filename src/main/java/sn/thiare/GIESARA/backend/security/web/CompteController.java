@@ -1,4 +1,4 @@
-package sn.thiare.GIESARA.backend.service.web;
+package sn.thiare.GIESARA.backend.security.web;
 
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +35,15 @@ public class CompteController {
     public void addRoleToEmail(@RequestBody RoleEmailForm roleEmailForm) {
         compteService.addRoleToEmail(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
     }
+    @DeleteMapping("/utilisateurs/{email}")
+    public void deleteUtilisateur(@PathVariable String email) {
+        compteService.deleteUtilisateur(email);
+    }
+    @PostMapping("/removeRole")
+    public void detaleRole(@RequestBody RoleEmailForm roleEmailForm) {
+        compteService.detaleRole(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
+    }
+
 }
 @Data
 class RoleEmailForm {
