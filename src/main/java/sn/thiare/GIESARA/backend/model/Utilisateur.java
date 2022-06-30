@@ -42,7 +42,7 @@ public class Utilisateur extends Personne{
     }
 
 
-    public Utilisateur(int id, String nom, String prenom, Date date_naissance, String lieu_naissance, char sexe, int numero_telephone, String numero_cni, String email, String password, List<Role> role, Reglement reglement) {
+        public Utilisateur(int id, String nom, String prenom, Date date_naissance, String lieu_naissance, char sexe, int numero_telephone, String numero_cni, String email, String password, List<Role> role, Reglement reglement) {
         super(id, nom, prenom, date_naissance, lieu_naissance, sexe, numero_telephone, numero_cni);
         this.email = email;
         this.password = password;

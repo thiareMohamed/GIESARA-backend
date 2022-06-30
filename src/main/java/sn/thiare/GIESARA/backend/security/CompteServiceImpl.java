@@ -51,4 +51,20 @@ public class CompteServiceImpl implements CompteService {
     public List<Utilisateur> getAllUtilisateurs() {
         return utilisateurRepository.findAll();
     }
+
+    @Override
+    public void detaleRole(String email, String libelle) {
+        Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
+        Role role = roleRepository.findByLibelle(libelle);
+        utilisateur.getRole().remove(role);
+    }
+    @Override
+    public void deleteUtilisateur(String email) {
+        Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
+        utilisateurRepository.delete(utilisateur);
+    }
+    @Override
+    public void updateUtilisateur(Utilisateur utilisateur) {
+        utilisateurRepository.save(utilisateur);
+    }
 }
