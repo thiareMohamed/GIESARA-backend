@@ -43,6 +43,11 @@ public class CompteController {
     public void detaleRole(@RequestBody RoleEmailForm roleEmailForm) {
         compteService.detaleRole(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
     }
+    @GetMapping("/utilisateurs/{email}")
+    public Utilisateur chargerUtilisateurByEmail(@PathVariable String email) {
+        return compteService.chargerUtilisateurByEmail(email);
+    }
+
 
 }
 @Data
