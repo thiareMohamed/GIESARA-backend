@@ -3,8 +3,6 @@ package sn.thiare.GIESARA.backend.security;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import sn.thiare.GIESARA.backend.model.Role;
 import sn.thiare.GIESARA.backend.model.Utilisateur;
 import sn.thiare.GIESARA.backend.repository.RoleRepository;
@@ -55,10 +53,10 @@ public class CompteServiceImpl implements CompteService {
     }
 
     @Override
-    public void detaleRole(String email, String libelle) {
+    public boolean detaleRole(String email, String libelle) {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
         Role role = roleRepository.findByLibelle(libelle);
-        utilisateur.getRole().remove(role);
+        return utilisateur.getRole().remove(role);
     }
     @Override
     public void deleteUtilisateur(int id) {

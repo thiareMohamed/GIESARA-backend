@@ -43,7 +43,8 @@ public class GiesaraBackendApplication {
 			compteService.addRoleToEmail("thiaremohamed.mt@gmail.com","RELEVEUR");
 			compteService.addRoleToEmail("thiaremohamed.mt@gmail.com","CAISSIER");
 
-//			compteService.detaleRole("thiaremohamed.mt@gmail.com","ADMIN");
+			compteService.detaleRole("thiaremohamed.mt@gmail.com","ADMIN");
+			compteService.detaleRole("thiaremohamed.mt@gmail.com","RELEVEUR");
 //			compteService.deleteUtilisateur("thiaremohamed.mt@gmail.com");
 
 		};

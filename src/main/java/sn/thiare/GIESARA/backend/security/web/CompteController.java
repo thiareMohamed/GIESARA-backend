@@ -1,6 +1,8 @@
 package sn.thiare.GIESARA.backend.security.web;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import sn.thiare.GIESARA.backend.model.Role;
 import sn.thiare.GIESARA.backend.model.Utilisateur;
@@ -31,7 +33,7 @@ public class CompteController {
     public Role createRole(@RequestBody Role role) {
         return compteService.createRole(role);
     }
-    @PostMapping("addRoleToEmail")
+    @PostMapping("/addRoleToEmail")
     public void addRoleToEmail(@RequestBody RoleEmailForm roleEmailForm) {
         compteService.addRoleToEmail(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
     }
@@ -39,9 +41,9 @@ public class CompteController {
     public void deleteUtilisateur(@PathVariable int id) {
         compteService.deleteUtilisateur(id);
     }
-    @PostMapping("/removeRole")
-    public void detaleRole(@RequestBody RoleEmailForm roleEmailForm) {
-        compteService.detaleRole(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
+    @PutMapping("/removeRole")
+    public boolean detaleRole(@RequestBody RoleEmailForm roleEmailForm) {
+        return compteService.detaleRole(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
     }
     @GetMapping("/utilisateurs/{email}")
     public Utilisateur chargerUtilisateurByEmail(@PathVariable String email) {
@@ -51,6 +53,8 @@ public class CompteController {
 
 }
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 class RoleEmailForm {
     String email;
     String libelle;
