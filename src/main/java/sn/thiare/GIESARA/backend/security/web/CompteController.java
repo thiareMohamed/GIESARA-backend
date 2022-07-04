@@ -24,9 +24,9 @@ public class CompteController {
         return compteService.getAllUtilisateurs();
     }
 
-    @PostMapping("/utilisateurs")
-    public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur) {
-        return compteService.createUtilisateur(utilisateur);
+    @PostMapping("/utilisateurs/{LibelleRole}")
+    public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur, @PathVariable String LibelleRole) {
+        return compteService.createUtilisateur(utilisateur, LibelleRole);
     }
 
     @PostMapping("/roles")
@@ -34,8 +34,8 @@ public class CompteController {
         return compteService.createRole(role);
     }
     @PostMapping("/addRoleToEmail")
-    public void addRoleToEmail(@RequestBody RoleEmailForm roleEmailForm) {
-        compteService.addRoleToEmail(roleEmailForm.getEmail(), roleEmailForm.getLibelle());
+    public void addRoleToEmail(@RequestBody RoleEmailForm roleEmailForm, String LibelleRole) {
+        compteService.addRoleToEmail(roleEmailForm.getEmail(), LibelleRole);
     }
     @DeleteMapping("/utilisateurs/{id}")
     public void deleteUtilisateur(@PathVariable int id) {
@@ -50,7 +50,15 @@ public class CompteController {
         return compteService.chargerUtilisateurByEmail(email);
     }
 
+    @PutMapping("/utilisateurs/{id}")
+    public Utilisateur updateUtilisateur(@RequestBody Utilisateur utilisateur, @PathVariable int id) {
+        return compteService.updateUtilisateur(utilisateur, id);
+    }
 
+    @GetMapping("/utilisateur/{id}")
+    public Utilisateur getUtilisateurById(@PathVariable int id) {
+        return compteService.getUtilisateurById(id);
+    }
 }
 @Data
 @AllArgsConstructor

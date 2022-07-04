@@ -9,12 +9,13 @@ import java.util.List;
 
 public interface CompteService {
 
-    public Utilisateur createUtilisateur(Utilisateur utilisateur);
+    public Utilisateur createUtilisateur(Utilisateur utilisateur, String LibelleRole);
     public Role createRole(Role role);
     public void addRoleToEmail(String email, String libelle);
     public Utilisateur chargerUtilisateurByEmail(String email);
     List<Utilisateur> getAllUtilisateurs();
     public boolean detaleRole(String email, String libelle);
     public void deleteUtilisateur(int id);
-    public void updateUtilisateur(Utilisateur utilisateur);
+    public Utilisateur updateUtilisateur(Utilisateur utilisateur, int id);
+    public Utilisateur getUtilisateurById(int id);
 }

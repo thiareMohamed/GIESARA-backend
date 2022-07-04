@@ -33,20 +33,11 @@ public class GiesaraBackendApplication {
 
 
 //			compteService.createUtilisateur(new Utilisateur(null,"THIARE","Mohamed","1998-08-29","Dakar",'M',773813060,3454545454545,"thiaremohamed.mt@gmail.com","Qwerty123",new ArrayList<>(),null));
-		compteService.createUtilisateur(new Utilisateur(1, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813060, "12233445456546", "thiaremohamed.mt@gmail.com", "Qwerty123", new ArrayList<>(), null));
-		compteService.createUtilisateur(new Utilisateur(2, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813062, "12233445456549", "thiare@gamil.com", "Awerty123", new ArrayList<>(), null));
-		compteService.createUtilisateur(new Utilisateur(3, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813063, "12233445456540", "thia@gmail.com", "Qwerty321", new ArrayList<>(), null));
+		compteService.createUtilisateur(new Utilisateur(1, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813060, "12233445456546", "thiaremohamed.mt@gmail.com", "Qwerty123", new ArrayList<>(), null),"RELEVEUR");
+		compteService.createUtilisateur(new Utilisateur(2, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813062, "12233445456549", "thiare@gamil.com", "Awerty123", new ArrayList<>(), null),"CAISSIER");
+		compteService.createUtilisateur(new Utilisateur(3, "SOUHAI", "Mohamed", new Date(), "Dakar", 'M', 773813063, "12233445456540", "thia@gmail.com", "Qwerty321", new ArrayList<>(), null),"ADMIN");
 
-			compteService.addRoleToEmail("thiare@gamil.com","RELEVEUR");
-			compteService.addRoleToEmail("thia@gmail.com","CAISSIER");
-			compteService.addRoleToEmail("thiaremohamed.mt@gmail.com","ADMIN");
-			compteService.addRoleToEmail("thiaremohamed.mt@gmail.com","RELEVEUR");
-			compteService.addRoleToEmail("thiaremohamed.mt@gmail.com","CAISSIER");
-
-			compteService.detaleRole("thiaremohamed.mt@gmail.com","ADMIN");
-			compteService.detaleRole("thiaremohamed.mt@gmail.com","RELEVEUR");
-//			compteService.deleteUtilisateur("thiaremohamed.mt@gmail.com");
-
+			System.out.println(compteService.getUtilisateurById(1));
 		};
 	}
 }

@@ -24,10 +24,12 @@ public class CompteServiceImpl implements CompteService {
         this.roleRepository = roleRepository;
     }
     @Override
-    public Utilisateur createUtilisateur(Utilisateur utilisateur) {
+    public Utilisateur createUtilisateur(Utilisateur utilisateur, String LibelleRole) {
         String password = utilisateur.getPassword();
         utilisateur.setPassword(passwordEncoder.encode(password));
-        return utilisateurRepository.save(utilisateur);
+        Utilisateur user = utilisateurRepository.save(utilisateur);
+        this.addRoleToEmail(user.getEmail(), LibelleRole);
+        return user;
     }
 
     @Override
@@ -63,7 +65,17 @@ public class CompteServiceImpl implements CompteService {
         utilisateurRepository.deleteById(id);
     }
     @Override
-    public void updateUtilisateur(Utilisateur utilisateur) {
-        utilisateurRepository.save(utilisateur);
+    public Utilisateur updateUtilisateur(Utilisateur utilisateur, int id) {
+        Utilisateur user = utilisateurRepository.findById(id).get();
+        user.setNom(utilisateur.getNom());
+        user.setPrenom(utilisateur.getPrenom());
+        user.setEmail(utilisateur.getEmail());
+        user.setPassword(utilisateur.getPassword());
+        user.setRole(utilisateur.getRole());
+        return utilisateurRepository.save(utilisateur);
+    }
+    @Override
+    public Utilisateur getUtilisateurById(int id) {
+        return utilisateurRepository.findById(id).get();
     }
 }
