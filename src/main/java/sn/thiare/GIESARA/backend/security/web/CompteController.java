@@ -50,7 +50,7 @@ public class CompteController {
         return compteService.chargerUtilisateurByEmail(email);
     }
 
-    @PutMapping("/utilisateurs/{id}")
+    @PatchMapping("/utilisateurs/update/{id}")
     public Utilisateur updateUtilisateur(@RequestBody Utilisateur utilisateur, @PathVariable int id) {
         return compteService.updateUtilisateur(utilisateur, id);
     }

@@ -16,7 +16,7 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 public class Utilisateur extends Personne{
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

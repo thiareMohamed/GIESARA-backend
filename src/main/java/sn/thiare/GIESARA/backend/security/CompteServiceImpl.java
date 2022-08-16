@@ -66,16 +66,21 @@ public class CompteServiceImpl implements CompteService {
     }
     @Override
     public Utilisateur updateUtilisateur(Utilisateur utilisateur, int id) {
-        Utilisateur user = utilisateurRepository.findById(id).get();
+        Utilisateur user = this.getUtilisateurById(id);
+        user.setRole(utilisateur.getRole());
         user.setNom(utilisateur.getNom());
         user.setPrenom(utilisateur.getPrenom());
         user.setEmail(utilisateur.getEmail());
-        user.setPassword(utilisateur.getPassword());
-        user.setRole(utilisateur.getRole());
+        user.setNumero_telephone(utilisateur.getNumero_telephone());
+        user.setNumero_cni(utilisateur.getNumero_cni());
+        System.out.println(utilisateur.getPassword());
+        if (utilisateur.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
+        }
         return utilisateurRepository.save(utilisateur);
     }
     @Override
     public Utilisateur getUtilisateurById(int id) {
-        return utilisateurRepository.findById(id).get();
+        return utilisateurRepository.findById(id).orElse(null);
     }
 }
