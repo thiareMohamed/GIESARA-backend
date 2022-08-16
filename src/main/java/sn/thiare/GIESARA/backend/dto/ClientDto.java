@@ -19,7 +19,7 @@ public class ClientDto extends PersonneDto {
     @JsonIgnore
     private List<CompteurDto> compteurDto;
 
-    public Client toEntity(ClientDto clientDto) {
+    public static Client toEntity(ClientDto clientDto) {
         if(clientDto == null) {
             return null;
         }
@@ -30,7 +30,8 @@ public class ClientDto extends PersonneDto {
         return client;
     }
 
-    public ClientDto fromEntity(Client client) {
+
+    public static ClientDto fromEntity(Client client) {
         if(client == null) {
             return null;
         }
@@ -40,4 +41,6 @@ public class ClientDto extends PersonneDto {
         clientDto.setPrenom(client.getPrenom());
         return clientDto;
     }
+
+
 }
