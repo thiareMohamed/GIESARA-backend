@@ -1,13 +1,13 @@
-package sn.thiare.GIESARA.backend.controller;
+package sn.thiare.GIESARA.backend.web.rest;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sn.thiare.GIESARA.backend.model.Village;
 import sn.thiare.GIESARA.backend.service.VillageService;
 
 import java.util.List;
 
-//@RestController
+@RestController
+@CrossOrigin("*")
 public class VillageController {
 
     private VillageService villageService;
@@ -25,7 +25,7 @@ public class VillageController {
         return villageService.getVillageById(id);
     }
     @PostMapping("/villages")
-    public ResponseEntity<Village> create(@RequestBody Village village){
+    public Village create(@RequestBody Village village){
        return villageService.createVillage(village);
     }
     @DeleteMapping("/villages/{id}")
@@ -33,7 +33,7 @@ public class VillageController {
         villageService.deleteVillage(id);
     }
     @PutMapping("/villages/{id}")
-    public ResponseEntity<Village> update(@RequestBody Village village,@PathVariable int id){
+    public Village update(@RequestBody Village village, @PathVariable int id){
         village.setId(id);
         return villageService.createVillage(village);
     }
