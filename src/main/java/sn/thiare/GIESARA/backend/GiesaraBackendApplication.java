@@ -6,11 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import sn.thiare.GIESARA.backend.model.Client;
-import sn.thiare.GIESARA.backend.model.Role;
-import sn.thiare.GIESARA.backend.model.Utilisateur;
+import sn.thiare.GIESARA.backend.model.*;
 import sn.thiare.GIESARA.backend.security.CompteService;
 import sn.thiare.GIESARA.backend.service.ClientService;
+import sn.thiare.GIESARA.backend.service.CommuneService;
+import sn.thiare.GIESARA.backend.service.VillageService;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +27,10 @@ public class GiesaraBackendApplication {
 		return new BCryptPasswordEncoder();
 	}
 	@Bean
-	CommandLineRunner start(CompteService compteService, ClientService clientService) {
+	CommandLineRunner start(CompteService compteService,
+							ClientService clientService,
+							CommuneService communeService,
+							VillageService villageService) {
 		return args -> {
 			compteService.createRole(new Role(1,"ADMIN"));
 			compteService.createRole(new Role(2,"RELEVEUR"));
@@ -43,6 +46,9 @@ public class GiesaraBackendApplication {
 			clientService.createClient(new Client(5,"THIARE", "Mohamed", new Date(), "Linguere", 'M', 773813064, "12233445456545", new ArrayList<>()));
 			clientService.createClient(new Client(6,"THIARE", "Astu", new Date(), "Linguere", 'F', 773813065, "12233445456544", new ArrayList<>()));
 			clientService.createClient(new Client(7,"THIARE", "Lamine", new Date(), "Linguere", 'M', 773813066, "12233445456543", new ArrayList<>()));
+
+			Commune commune = communeService.createCommune(new Commune(1, "Keur Samba Gueye", null));
+			villageService.createVillage(new Village(1,"Keur aibe ka",commune,new ArrayList<>()));
 		};
 	}
 }
