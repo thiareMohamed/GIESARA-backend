@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import sn.thiare.GIESARA.backend.model.Commune;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Data
