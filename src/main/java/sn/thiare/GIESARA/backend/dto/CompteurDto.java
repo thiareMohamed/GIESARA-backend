@@ -42,7 +42,6 @@ public class CompteurDto {
         Compteur compteur = new Compteur();
         compteur.setId(compteurDto.getId());
         compteur.setType_compteur(compteurDto.getType_compteur());
-        compteur.setType_abonnement(compteurDto.getType_abonnement());
         compteur.setDate_abonnement(compteurDto.getDate_abonnement());
         compteur.setMarque_compteur(compteurDto.getMarque_compteur());
         compteur.setStatut(compteurDto.isStatut());
@@ -57,7 +56,6 @@ public class CompteurDto {
         CompteurDto compteurDto = new CompteurDto();
         compteurDto.setId(compteur.getId());
         compteurDto.setType_compteur(compteur.getType_compteur());
-        compteurDto.setType_abonnement(compteur.getType_abonnement());
         compteurDto.setDate_abonnement(compteur.getDate_abonnement());
         compteurDto.setMarque_compteur(compteur.getMarque_compteur());
         compteurDto.setStatut(compteur.isStatut());

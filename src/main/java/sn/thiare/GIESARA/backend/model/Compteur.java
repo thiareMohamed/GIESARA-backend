@@ -19,7 +19,6 @@ public class Compteur  {
     private int id;
 
     private String type_compteur;
-    private String type_abonnement;
     private Date date_abonnement;
     private String marque_compteur;
     private boolean statut;
